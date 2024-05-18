@@ -24,5 +24,3 @@ qmake
   - ```shell
   make
   ```
-
-# For Windows
