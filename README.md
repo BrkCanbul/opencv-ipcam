@@ -30,7 +30,8 @@ sudo make install
 3. clone this repository
    - ```shell
         git clone github.com/brkCanbul/opencv-ipcam
-    ```
+        cd ./opencv-ipcam
+        ```
 3. build QMake files
   -  ```shell
       qmake
