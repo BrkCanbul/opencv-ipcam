@@ -24,3 +24,18 @@ sudo make install
   - ```shell
        make
       ```
+# For windows
+1. Install opencv 4.9   from [here](https://opencv.org/releases/)
+2. Install Qt from [here](https://www.qt.io/download)
+3. clone this repository
+   - ```shell
+        git clone github.com/brkCanbul/opencv-ipcam
+    ```
+3. build QMake files
+  -  ```shell
+      qmake
+      ```
+4. build Makefile
+  - ```shell
+       mingw32-make
+      ```
