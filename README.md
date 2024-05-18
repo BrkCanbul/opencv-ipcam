@@ -32,11 +32,12 @@ sudo make install
         git clone github.com/brkCanbul/opencv-ipcam
         cd ./opencv-ipcam
         ```
-3. build QMake files
+4. Configure config.pri and opencv-ipcam.pro files according to your opencv path
+5. build QMake files
   -  ```shell
       qmake
       ```
-4. build Makefile
+6. build Makefile
   - ```shell
        mingw32-make
       ```
