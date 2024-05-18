@@ -1,7 +1,7 @@
 # For ubuntu 22.04
 ## Install opencv
 - clone repository from https://github.com/opencv/opencv
-  ```shell
+```shell
 git clone https://github.com/opencv/opencv.git
 cd opencv
 mkdir build
