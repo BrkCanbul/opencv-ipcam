@@ -14,13 +14,13 @@ sudo make install
 2. Install QT5 for ubuntu
   - qt tools
   - ```shell
-sudo apt install -y qtcreator qtbase5-dev qt5-qmake cmake
-```
+      sudo apt install -y qtcreator qtbase5-dev qt5-qmake cmake
+    ```
 3. build QMake files
   -  ```shell
-qmake
-```
+      qmake
+      ```
 4. build Makefile
   - ```shell
-  make
-  ```
+       make
+      ```
