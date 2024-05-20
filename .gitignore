@@ -1,0 +1,8 @@
+.qmake.stash
+main.o
+mainwindow.o
+Makefile
+moc_*
+opencv-ipcam
+opencv-ipcam.pro.user
+ui_mainwindow.h
