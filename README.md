@@ -4,10 +4,13 @@
 ```shell
 git clone https://github.com/opencv/opencv.git
 cd opencv
+```
+-build the repository with Gstreamer library
+```shell
 mkdir build
 cd build
 sudo apt install cmake
-cmake ../
+cmake ../ 
 make -j4
 sudo make install
 ```
