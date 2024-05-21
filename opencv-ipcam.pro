@@ -11,10 +11,12 @@ include(config.pri)
 
 SOURCES += \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    streamthread.cpp
 
 HEADERS += \
-    mainwindow.h
+    mainwindow.h \
+    streamthread.h
 
 FORMS += \
     mainwindow.ui
