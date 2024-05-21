@@ -1,22 +1,25 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include "streamthread.h"
 #include <opencv2/opencv.hpp>
 #include <QTimer>
+
 mainWindow::mainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::mainWindow)
 {
-
-    cap = new cv::VideoCapture();
     ui->setupUi(this);
-    QTimer *timer=new QTimer(this);
-    qDebug("geldin mi");
-    connect(timer,SIGNAL(timeout()),this,SLOT(updateFrame()));
-    timer->start(1);
+    streamThread = nullptr;
+    connect(this,&mainWindow::newFrame,this,&mainWindow::updateFrame);
 }
 
 mainWindow::~mainWindow()
 {
+    if(streamThread){
+        streamThread->requestInterruption();
+        streamThread->wait();
+        delete streamThread;
+    }
     delete ui;
 }
 
@@ -24,27 +27,24 @@ mainWindow::~mainWindow()
 void mainWindow::on_pushButton_clicked()
 {
     this->url = ui->urlLine->text().toStdString();
-    qDebug("url: %s", this->url.c_str());
-    cap->open(this->url);
-    qDebug("capture was opened");
+    if (streamThread) {
+        streamThread->requestInterruption();
+        streamThread->wait();
+        delete streamThread;
+    }
+    streamThread = new StreamThread(this->url);
+    connect(streamThread,&StreamThread::sendFrame,this,&mainWindow::updateFrame);
+    connect(streamThread,&StreamThread::error,[](QString err){
+        std::string errorMessage = "error : " + err.toStdString();
+        qDebug(errorMessage.c_str());
+    });
+    streamThread->start();
 
 }
 
 
-void mainWindow::updateFrame(){
-
-
-        cv::Mat frame;
-        *cap >> frame;
-
-        if(frame.empty()){
-            qDebug("frame is empty");
-            return;
-        }
-        cv::resize(frame,frame,cv::Size(1000,600));
-        cv::cvtColor(frame,frame,cv::COLOR_BGR2RGB);
-        QImage img(frame.data,frame.cols,frame.rows,frame.step,QImage::Format_RGB888);
-        ui->imgLabel->setPixmap(QPixmap::fromImage(img));
+void mainWindow::updateFrame(QImage img){
+      ui->imgLabel->setPixmap(QPixmap::fromImage(img));
 
 }
 

@@ -3,7 +3,8 @@
 
 
 #include <QMainWindow>
-
+#include <QThread>
+#include "streamthread.h"
 #include "opencv2/opencv.hpp"
 
 QT_BEGIN_NAMESPACE
@@ -18,16 +19,18 @@ public:
 
     mainWindow(QWidget *parent = nullptr);
     ~mainWindow();
-
-
 private slots:
     void on_pushButton_clicked();
-    void updateFrame();
+    void updateFrame(QImage img);
+
+signals:
+    void newFrame(QImage img);
+
 
 private:
     Ui::mainWindow *ui;
     std::string url;
-    cv::VideoCapture *cap;
+    StreamThread *streamThread;
 
 };
 
