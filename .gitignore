@@ -8,3 +8,7 @@ opencv-ipcam.pro.user
 ui_mainwindow.h
 .vscode
 streamthread.o
+debug
+release
+*.debug
+*release
