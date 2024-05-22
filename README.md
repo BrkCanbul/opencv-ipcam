@@ -10,7 +10,7 @@ cd opencv
 mkdir build
 cd build
 sudo apt install cmake
-cmake ../ 
+cmake  cmake -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr/local -D WITH_GSTREAMER=ON ..
 make -j4
 sudo make install
 ```
