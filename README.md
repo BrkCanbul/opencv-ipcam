@@ -44,3 +44,7 @@ sudo make install
   - ```shell
        mingw32-make
       ```
+
+
+## Flowchart for program
+![alt text](./flowchart-opencv-ipcam.png)
