@@ -32,6 +32,7 @@ private:
     std::string url;
     StreamThread *streamThread;
 
+
 };
 
 #endif // MAINWINDOW_H

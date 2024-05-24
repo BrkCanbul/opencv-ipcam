@@ -11,7 +11,7 @@ class StreamThread : public QThread
 {
     Q_OBJECT
 public:
-    StreamThread(std::string url,QObject *parent = nullptr);
+    StreamThread(std::string url,int h,int w,QObject *parent = nullptr);
     ~StreamThread();
     
 protected:
@@ -23,6 +23,9 @@ signals:
     
 private:
     std::string url;
+    int height;
+    int width;
+
 
 };
 

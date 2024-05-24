@@ -4,8 +4,12 @@
 #include <QImage>
 #include <QDebug>
 
-StreamThread::StreamThread(std::string url,QObject *parent)
-    : QThread(parent),url(url){}
+StreamThread::StreamThread(std::string url,int h ,int w,QObject *parent)
+    : QThread(parent),url(url){
+    this->height = h;
+    this->width = w;
+
+}
 
 StreamThread::~StreamThread(){}
 void StreamThread::run(){
@@ -25,13 +29,10 @@ void StreamThread::run(){
             qDebug("frame is empty");
             return;
         }
-        
-        cv::resize(frame,frame,cv::Size(1000,600));
+        cv::resize(frame,frame,cv::Size(width,height));
         cv::cvtColor(frame,frame,cv::COLOR_BGR2RGB);
-        cv::putText(frame,"FPS: "+std::to_string(cap.get(cv::CAP_PROP_FPS)),cv::Point(10,100),cv::FONT_HERSHEY_SIMPLEX,1,cv::Scalar(255,0,0),2);
-        cv::putText(frame,"IP CAM ADDRESS : "+url,cv::Point(10,50),cv::FONT_HERSHEY_SIMPLEX,1,cv::Scalar(255,0,0),2);
-
-
+        cv::putText(frame,"IPCAM VİEW",cv::Point(0,10),cv::FONT_HERSHEY_SIMPLEX,1,cv::Scalar(0,255,0),1,cv::LINE_AA);
+    
         QImage img(frame.data,frame.cols,frame.rows,frame.step,QImage::Format_RGB888);
         emit sendFrame(img);
         

@@ -32,17 +32,14 @@ void mainWindow::on_pushButton_clicked()
         streamThread->wait();
         delete streamThread;
     }
-    streamThread = new StreamThread(this->url);
+    streamThread = new StreamThread(this->url,ui->imgLabel->height(),ui->imgLabel->width());
     connect(streamThread,&StreamThread::sendFrame,this,&mainWindow::updateFrame);
     connect(streamThread,&StreamThread::error,[](QString err){
         std::string errorMessage = "error : " + err.toStdString();
         qDebug(errorMessage.c_str());
     });
     streamThread->start();
-
 }
-
-
 void mainWindow::updateFrame(QImage img){
       ui->imgLabel->setPixmap(QPixmap::fromImage(img));
 

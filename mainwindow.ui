@@ -6,67 +6,57 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1142</width>
-    <height>627</height>
+    <width>1059</width>
+    <height>800</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>mainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QLabel" name="imgLabel">
-    <property name="geometry">
-     <rect>
-      <x>130</x>
-      <y>30</y>
-      <width>861</width>
-      <height>461</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: rgb(85, 170, 0);</string>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pushButton">
-    <property name="geometry">
-     <rect>
-      <x>530</x>
-      <y>560</y>
-      <width>80</width>
-      <height>21</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Open Cam</string>
-    </property>
-   </widget>
-   <widget class="QLineEdit" name="urlLine">
-    <property name="geometry">
-     <rect>
-      <x>380</x>
-      <y>530</y>
-      <width>381</width>
-      <height>21</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-    <property name="placeholderText">
-     <string>enter the url of the video</string>
-    </property>
-   </widget>
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="QLabel" name="imgLabel">
+      <property name="minimumSize">
+       <size>
+        <width>1041</width>
+        <height>0</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(85, 170, 0);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLineEdit" name="urlLine">
+      <property name="text">
+       <string/>
+      </property>
+      <property name="placeholderText">
+       <string>enter the url of the video</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="pushButton">
+      <property name="text">
+       <string>Open Cam</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1142</width>
-     <height>20</height>
+     <width>1059</width>
+     <height>22</height>
     </rect>
    </property>
   </widget>

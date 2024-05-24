@@ -30,28 +30,28 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 
 
-INCLUDEPATH += C:\opcv\opencv\release\install\include
+#INCLUDEPATH += C:\opcv\opencv\release\install\include
 
-LIBS += C:\opcv\opencv\release\bin\libopencv_highgui490.dll
-LIBS += C:\opcv\opencv\release\bin\libopencv_core490.dll
-LIBS += C:\opcv\opencv\release\bin\libopencv_highgui490.dll
-LIBS += C:\opcv\opencv\release\bin\libopencv_imgcodecs490.dll
-LIBS += C:\opcv\opencv\release\bin\libopencv_imgproc490.dll
-LIBS += C:\opcv\opencv\release\bin\libopencv_features2d490.dll
-LIBS += C:\opcv\opencv\release\bin\libopencv_video490.dll
-LIBS += C:\opcv\opencv\release\bin\libopencv_videoio490.dll
+#LIBS += C:\opcv\opencv\release\bin\libopencv_highgui490.dll
+#LIBS += C:\opcv\opencv\release\bin\libopencv_core490.dll
+#LIBS += C:\opcv\opencv\release\bin\libopencv_highgui490.dll
+#LIBS += C:\opcv\opencv\release\bin\libopencv_imgcodecs490.dll
+#LIBS += C:\opcv\opencv\release\bin\libopencv_imgproc490.dll
+#LIBS += C:\opcv\opencv\release\bin\libopencv_features2d490.dll
+#LIBS += C:\opcv\opencv\release\bin\libopencv_video490.dll
+#LIBS += C:\opcv\opencv\release\bin\libopencv_videoio490.dll
 
 
-#INCLUDEPATH += $$OPENCV_PATH
-#LIBS += -L$$OPENCV_LIBS_PATH
-#LIBS += -lopencv_highgui
-#LIBS += -lopencv_core
-#LIBS += -lopencv_highgui
-#LIBS += -lopencv_imgcodecs
-#LIBS += -lopencv_imgproc
-#LIBS += -lopencv_features2d
-#LIBS += -lopencv_video
-#LIBS += -lopencv_videoio
+INCLUDEPATH += $$OPENCV_PATH
+LIBS += -L$$OPENCV_LIBS_PATH
+LIBS += -lopencv_highgui
+LIBS += -lopencv_core
+LIBS += -lopencv_highgui
+LIBS += -lopencv_imgcodecs
+LIBS += -lopencv_imgproc
+LIBS += -lopencv_features2d
+LIBS += -lopencv_video
+LIBS += -lopencv_videoio
 
 
 #win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../../../../../opcv/opencv/release/lib/ -libopencv_highgui490.dll
