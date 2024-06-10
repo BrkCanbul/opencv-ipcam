@@ -26,37 +26,33 @@ qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
+# Set OpenCV paths based on the operating system
+win32 {
+    INCLUDEPATH += $$OPENCV_PATH
+    LIBS += -LC:OPENCV_LIBS_PATH
+    LIBS += -lopencv_highgui490
+    LIBS += -lopencv_core490
+    LIBS += -lopencv_imgcodecs490
+    LIBS += -lopencv_imgproc490
+    LIBS += -lopencv_features2d490
+    LIBS += -lopencv_video490
+    LIBS += -lopencv_videoio490
+} else: unix {
+    INCLUDEPATH += $$OPENCV_PATH
+    LIBS += -L$$OPENCV_LIBS_PATH
+    LIBS += -lopencv_highgui
+    LIBS += -lopencv_core
+    LIBS += -lopencv_imgcodecs
+    LIBS += -lopencv_imgproc
+    LIBS += -lopencv_features2d
+    LIBS += -lopencv_video
+    LIBS += -lopencv_videoio
+}
 
+# Uncomment and adjust the following paths if needed for specific configurations
+# win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../../../../../opcv/opencv/release/lib/ -libopencv_highgui490.dll
+# else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/../../../../../opcv/opencv/release/lib/ -libopencv_highgui490.dlld
+# else:unix: LIBS += -L$$PWD/../../../../../opcv/opencv/release/lib/ -llibopencv_highgui490.dll
 
-
-
-#INCLUDEPATH += C:\opcv\opencv\release\install\include
-
-#LIBS += C:\opcv\opencv\release\bin\libopencv_highgui490.dll
-#LIBS += C:\opcv\opencv\release\bin\libopencv_core490.dll
-#LIBS += C:\opcv\opencv\release\bin\libopencv_highgui490.dll
-#LIBS += C:\opcv\opencv\release\bin\libopencv_imgcodecs490.dll
-#LIBS += C:\opcv\opencv\release\bin\libopencv_imgproc490.dll
-#LIBS += C:\opcv\opencv\release\bin\libopencv_features2d490.dll
-#LIBS += C:\opcv\opencv\release\bin\libopencv_video490.dll
-#LIBS += C:\opcv\opencv\release\bin\libopencv_videoio490.dll
-
-
-INCLUDEPATH += $$OPENCV_PATH
-LIBS += -L$$OPENCV_LIBS_PATH
-LIBS += -lopencv_highgui
-LIBS += -lopencv_core
-LIBS += -lopencv_highgui
-LIBS += -lopencv_imgcodecs
-LIBS += -lopencv_imgproc
-LIBS += -lopencv_features2d
-LIBS += -lopencv_video
-LIBS += -lopencv_videoio
-
-
-#win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../../../../../opcv/opencv/release/lib/ -libopencv_highgui490.dll
-#else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/../../../../../opcv/opencv/release/lib/ -libopencv_highgui490.dlld
-#else:unix: LIBS += -L$$PWD/../../../../../opcv/opencv/release/lib/ -llibopencv_highgui490.dll
-
-#INCLUDEPATH += $$PWD/../../../../../opcv/opencv/release/include
-#DEPENDPATH += $$PWD/../../../../../opcv/opencv/release/include
+# INCLUDEPATH += $$PWD/../../../../../opcv/opencv/release/include
+# DEPENDPATH += $$PWD/../../../../../opcv/opencv/release/include
